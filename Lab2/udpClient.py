@@ -20,11 +20,17 @@ message = input('Inserisci una Stringa: ')
 
 clientSocket.sendto(message.encode('utf-8'), (serverName, serverPort))
 
+
+# troviamo una soluzione per l'attesa infinita della risposta:
+# possiamo impostare un timeout e generare un'exception
+
+
 # attendiamo ora la ricezione del messaggio
 # la funzione ritorna sia i dati che le generalità del mittente
 # prende come argomento la lunghezza del buffer in entrata (in BYTE)
 
 modifiedMessage, serverAddress = clientSocket.recvfrom(2048)
+
 
 # decodifichiamo dal binario e stampiamo il messaggio
 
