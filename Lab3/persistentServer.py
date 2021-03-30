@@ -9,7 +9,11 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 
 serverSocket.bind(('', serverPort))
 
-serverSocket.listen()
+# se io mettessi il comando nel cmd,
+# potrei avere una coda di dimensione maggiore
+# ma comunque limitata, in quanto si prende il numero massimo
+# tra sistema operativo e richieste dall'utente
+serverSocket.listen(5)
 
 print('Server in ascolto. Pronto a ricevere')
 while True:
